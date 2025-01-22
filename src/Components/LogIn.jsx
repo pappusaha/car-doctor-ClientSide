@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
 
-  const {signInUser}=UseAuth()
+  const {signInUser, goggle}=UseAuth()
   const { register, handleSubmit,formState: { errors } } = useForm()
   const onSubmit = (data) => {
     console.log(data)
@@ -88,14 +88,14 @@ const Login = () => {
           </p>
           <div className="flex justify-center space-x-4 mt-4">
             <button className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">
-              <FaFacebookF  className=" text-blue-600" />
+              <FaFacebookF  className=" text-blue-600"/>
             </button>
             <button className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">
               <FaLinkedinIn    className=" text-blue-700"/>
              
               
             </button>
-            <button className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">
+            <button onClick={() => goggle()} className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">
               <FaGoogle  className="fab fa-google text-yellow-400"/>
             </button>
           </div>

@@ -9,7 +9,7 @@ import { CiFacebook } from "react-icons/ci";
 import { LiaLinkedinIn } from "react-icons/lia";
 
 const SignUp = () => {
-  const { createUser } = UseAuth(); // Ensure UseAuth is correctly implemented
+  const { createUser,goggle } = UseAuth(); // Ensure UseAuth is correctly implemented
   const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
 
   const { register, handleSubmit, setError, formState: { errors } } = useForm();
@@ -29,7 +29,7 @@ const SignUp = () => {
       } 
       
       else if (regex.test(password)){
-        createUser(email,password)
+        createUser(email,password,name)
         .then(userCredential => {
           const user=userCredential.user
           if(user){
@@ -116,7 +116,7 @@ const SignUp = () => {
           </p>
          <div className='flex justify-center space-x-8'>
          <div className="flex justify-center space-x-4 mt-4">
-            <button className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">
+            <button onClick={()=> goggle()} className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center hover:bg-gray-300">
               <FaGoogle className="text-red-500" />
             </button>
           </div>
